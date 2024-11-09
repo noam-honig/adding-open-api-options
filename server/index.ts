@@ -17,5 +17,8 @@ app.get("/api/openApi.json", (req, res) => {
   res.json(openApiDocument);
 });
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(openApiDocument));
+app.get("/", (req, res) => {
+  res.redirect("/api/docs");
+});
 
 app.listen(3002, () => console.log("server started"));
